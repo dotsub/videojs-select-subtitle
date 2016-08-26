@@ -16,6 +16,8 @@ const defaults = {};
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-select-subtitle');
+  console.log("select subtitle");
+  console.log("Options: " + options);
 };
 
 /**
@@ -31,6 +33,7 @@ const onPlayerReady = (player, options) => {
  *           An object of options left to the plugin author to define.
  */
 const selectSubtitle = function(options) {
+  console.log("Starting subtitle");
   this.ready(() => {
     onPlayerReady(this, videojs.mergeOptions(defaults, options));
   });

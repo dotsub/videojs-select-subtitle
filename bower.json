@@ -1,0 +1,13 @@
+{
+  "name": "videojs-select-subtitle",
+  "author": "Lubos Krnac &lt;lubos.krnac@gmail.com&gt;",
+  "license": "Apache-2.0",
+  "main": [
+    "dist/videojs-select-subtitle.min.js"
+  ],
+  "keywords": [
+    "videojs",
+    "videojs-plugin"
+  ]
+}
+

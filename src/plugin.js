@@ -19,6 +19,28 @@ const onPlayerReady = (player, options) => {
 };
 
 /**
+ * Function reads desired caption/subtitle language from options
+ * and shows belonging caption/subtitle track.
+ * @function showTrackFromOptions
+ * @param    {Player} player
+ * @param    {Object} [options={}]
+ */
+const showTrackFromOptions = (player, options) => {
+  if (!options.trackLanguage) {
+    return;
+  }
+
+  for (let idx = 0; idx < player.textTracks().length; idx++) {
+    const track = player.textTracks()[idx];
+
+    if (track.language === options.trackLanguage) {
+      track.mode = 'showing';
+      break;
+    }
+  }
+};
+
+/**
  * A video.js plugin.
  *
  * In the plugin function, the value of `this` is a video.js `Player`
@@ -35,20 +57,7 @@ const selectSubtitle = function(options) {
     onPlayerReady(this, videojs.mergeOptions(defaults, options));
   });
 
-  this.on('play', function() {
-    if (!options.trackLanguage) {
-      return;
-    }
-
-    for (let idx = 0; idx < this.textTracks().length; idx++) {
-      const track = this.textTracks()[idx];
-
-      if (track.language === options.trackLanguage) {
-        track.mode = 'showing';
-        break;
-      }
-    }
-  });
+  this.on('play', () => showTrackFromOptions(this.player, options));
 };
 
 // Register the plugin with video.js.

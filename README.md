@@ -1,6 +1,13 @@
 # videojs-select-subtitle
 
-Will automatically select subtitle track based on configuration
+Will automatically select subtitle track with selected language. Language can be specified by option `trackLanguage`.
+
+Options Example:
+```
+{
+  trackLanguage: 'es'
+}
+```
 
 ## Installation
 

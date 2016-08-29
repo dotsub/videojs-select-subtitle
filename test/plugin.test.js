@@ -56,3 +56,37 @@ QUnit.test('registers itself with video.js', function(assert) {
     'the plugin adds a class to the player'
   );
 });
+
+const testTrackSelection = (player, assert, trackLanguage, expectedTrackIdShowed) => {
+  assert.expect(1);
+
+  // GIVEN
+  const options = { trackLanguage: trackLanguage };
+  const textTracksStub = sinon.stub(player, 'textTracks');
+  const tracks = [
+    { language: 'zh-CN', mode: 'disabled' },
+    { language: 'en', mode: 'disabled' },
+    { language: 'ja', mode: 'disabled' },
+    { language: 'es', mode: 'disabled' }
+  ];
+
+  textTracksStub.returns(tracks);
+
+  player.selectSubtitle(options);
+
+  // WHEN
+  player.trigger('play');
+
+  // THEN
+  assert.equal(tracks[expectedTrackIdShowed].mode, 'showing');
+
+  player.textTracks.restore();
+};
+
+QUnit.test('selects Spanish subtitle track based on options', function(assert) {
+  testTrackSelection(this.player, assert, 'es', 3);
+});
+
+QUnit.test('selects English subtitle track based on options', function(assert) {
+  testTrackSelection(this.player, assert, 'en', 1);
+});

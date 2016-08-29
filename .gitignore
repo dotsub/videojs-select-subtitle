@@ -33,3 +33,4 @@ dist/
 docs/api/
 es5/
 test/dist/
+/local-test/

@@ -1,5 +1,5 @@
 {
-  "name": "@dotsub/videojs-select-subtitle",
+  "name": "videojs-select-subtitle",
   "version": "0.1.0",
   "description": "Will automatically select subtitle track based on configuration",
   "main": "es5/plugin.js",

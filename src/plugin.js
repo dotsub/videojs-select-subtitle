@@ -39,9 +39,15 @@ const selectSubtitle = function(options) {
     if (!options.trackLanguage) {
       return;
     }
-    this.textTracks()
-      .filter((track) => track.language === options.trackLanguage)
-      .forEach((track) => track.mode = 'showing');
+
+    for (let idx = 0; idx < this.textTracks().length; idx++) {
+      const track = this.textTracks()[idx];
+
+      if (track.language === options.trackLanguage) {
+        track.mode = 'showing';
+        break;
+      }
+    }
   });
 };
 

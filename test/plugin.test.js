@@ -61,14 +61,15 @@ const testTrackSelection = (player, assert, trackLanguage, expectedTrackIdShowed
   assert.expect(1);
 
   // GIVEN
-  const options = { trackLanguage: trackLanguage };
+  const options = { trackLanguage };
   const textTracksStub = sinon.stub(player, 'textTracks');
-  const tracks = [
-    { language: 'zh-CN', mode: 'disabled' },
-    { language: 'en', mode: 'disabled' },
-    { language: 'ja', mode: 'disabled' },
-    { language: 'es', mode: 'disabled' }
-  ];
+  const tracks = {
+    0: { language: 'zh-CN', mode: 'disabled' },
+    1: { language: 'en', mode: 'disabled' },
+    2: { language: 'ja', mode: 'disabled' },
+    3: { language: 'es', mode: 'disabled' },
+    length: 4
+  };
 
   textTracksStub.returns(tracks);
 

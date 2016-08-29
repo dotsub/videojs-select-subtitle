@@ -57,7 +57,7 @@ const selectSubtitle = function(options) {
     onPlayerReady(this, videojs.mergeOptions(defaults, options));
   });
 
-  this.on('play', () => showTrackFromOptions(this.player, options));
+  this.on('play', () => showTrackFromOptions(this, options));
 };
 
 // Register the plugin with video.js.

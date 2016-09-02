@@ -29,7 +29,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script>
   var player = videojs('my-video');
 
-  player.selectSubtitle();
+  player.selectSubtitle({ trackLanguage: 'es' });
 </script>
 ```
 
@@ -47,7 +47,7 @@ require('videojs-select-subtitle');
 
 var player = videojs('my-video');
 
-player.selectSubtitle();
+player.selectSubtitle({ trackLanguage: 'es' });
 ```
 
 ### RequireJS/AMD
@@ -58,7 +58,7 @@ When using with RequireJS (or another AMD library), get the script in whatever w
 require(['video.js', 'videojs-select-subtitle'], function(videojs) {
   var player = videojs('my-video');
 
-  player.selectSubtitle();
+  player.selectSubtitle({ trackLanguage: 'es' });
 });
 ```
 

@@ -15,12 +15,6 @@ Options Example:
 npm install --save videojs-select-subtitle
 ```
 
-The npm installation is preferred, but Bower works, too.
-
-```sh
-bower install  --save videojs-select-subtitle
-```
-
 ## Usage
 
 To include videojs-select-subtitle on your website or web application, use any of the following methods.
